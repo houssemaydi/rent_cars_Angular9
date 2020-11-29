@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>
+        List of cars
+
+    </h1>
+    <button class="btn btn-primary" (click)="onGetCars()">
+        cars
+
+    </button>
+       <!--
+                #f: if
+
+            -->
+            <form #f="ngForm" (ngSubmit)="Search(f.value)">
+                <div class="form-group">
+                    <label>keyword</label>
+                    <input type="text" name="keyword" ngModel>
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </form>
+            <table *ngIf="cars" class="table">
+                <thead class="thead-dark">
+
+                <tr>
+                    <th scope="col">description</th>
+                    <th scope="col">num</th>
+                    <th scope="col">serie</th>
+                    <th scope="col">color</th>
+                    <th scope="col">brand</th>
+                    <th scope="col">model</th>
+                    <th scope="col">purchDate</th>
+                    <th scope="col">cat</th>
+                    <th scope="col">pricePerDay</th>
+
+                </tr>
+                </thead>
+                <tr *ngFor='let c of cars._embedded.cars'>
+                    <td>{{c.description}} </td>
+                    <td>{{c.number}} </td>
+                    <td>{{c.serie}} </td>
+                    <td>{{c.color}} </td>
+                    <td>{{c.brand}} </td>
+                    <td>{{c.model}} </td>
+                    <td>{{c.purchDate}} </td>
+                    <td>{{c._links.cat.href}} </td>
+                    <td>{{c.pricePerDay}} </td>
+                    <td><a class="btn btn-danger" (click)="onDeleteCar(c)">Delete</a> </td>
+
+                </tr>
+            </table>
+            <ul  class="nav nav-pills nav-justified">
+                <li class="clickable"  *ngFor="let c of pages; let i=index" class="nav-item clickable">
+                    <a [ngClass]="i==currentPage?'active':''"  (click)="onPageCar(i)">{{i}}</a>
+                </li>
+            </ul>
+
+</div>

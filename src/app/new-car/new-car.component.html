@@ -1,0 +1,26 @@
+<div class="panel-body">
+
+
+
+
+
+    <form #f="ngForm" (ngSubmit)="onSaveCustomer(f.value)">
+        <div class="form-group">
+            <label class="control-label">firstName</label>
+            <input class="form-control" type="text" name="firstName" id="" ngModel>
+        </div>
+        <div class="form-group">
+            <label class="control-label">lastName</label>
+            <input class="form-control" type="text" name="lastName" id="" ngModel>
+        </div>
+        <div class="form-group">
+            <label class="control-label">email</label>
+            <input class="form-control" type="text" name="email" id="" ngModel>
+        </div>
+        <div class="form-group">
+            <label class="control-label">mobile</label>
+            <input class="form-control" type="number" name="mobile" id="" ngModel>
+        </div>
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
+</div>
